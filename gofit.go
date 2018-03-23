@@ -7,7 +7,7 @@ import (
   "time"
   "net/http"
   "github.com/influxdata/influxdb/client/v2"
-  "github.com/timatooth/gofit/fitbitapi"
+  "github.com/carlioth/gofit/fitbitapi"
 )
 
 const (
@@ -22,7 +22,7 @@ func loadInfluxData(api *fitbitapi.Api){
   activitySteps := api.GetActivitySteps()
 
   c, err := client.NewHTTPClient(client.HTTPConfig{
-    Addr:     "http://localhost:8086",
+    Addr:     "http://192.168.2.241:8086",
     Username: InfluxUsername,
     Password: InfluxPassword,
   })
@@ -107,7 +107,7 @@ func loadInfluxData(api *fitbitapi.Api){
       Precision: "s",
     })
 
-    for _, point := range series.GetNormalisedSeries("Pacific/Auckland") {
+    for _, point := range series.GetNormalisedSeries("Europe/Stockholm") {
       tags := map[string]string{"heart": "intraday-heart"}
       fields := map[string]interface{}{
         "rate":  point.Value,

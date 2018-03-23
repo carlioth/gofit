@@ -10,6 +10,8 @@
 * Grafana 4.2+
 
 ##### Todo
+* Get this running as cron job
+* Make timezone and Influxdb variables
 * Use the Fitbit subscriptions API to send metrics in near-realtime when a fitness tracker syncs with Fitbit Servers.
 * Prometheus Fitbit exporter.
 
@@ -21,6 +23,8 @@ Optionally add `$PATH=$PATH:$GOPATH/bin` to make `gofit` command available.
     go get -v github.com/timatooth/gofit
 
 ## Running
+Create database fitbit in Influxdb
+set the callback url in your app (default http://localhost:4000/auth)
 
     export FITBIT_CLIENT_ID=XXXXXX
     export FITBIT_CLIENT_SECRET=xxxxxxxxxxxxxxxxxxx
